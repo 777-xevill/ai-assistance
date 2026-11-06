@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website chat preview</title>
+    <style>
+      body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; background: #f4f4f5; color: #18181b; }
+      .bar { height: 56px; background: #fff; border-bottom: 1px solid #e4e4e7; display: flex; align-items: center; padding: 0 24px; font-weight: 600; }
+      .hero { max-width: 720px; margin: 72px auto; padding: 0 20px; }
+      h1 { font-size: 32px; margin: 0 0 12px; }
+      p { color: #52525b; line-height: 1.6; }
+      .card { margin-top: 32px; background: #fff; border: 1px solid #e4e4e7; border-radius: 12px; padding: 20px; }
+    </style>
+  </head>
+  <body>
+    <div class="bar">Your website</div>
+    <div class="hero">
+      <h1>Website chat preview</h1>
+      <p>This page shows the chat widget exactly as visitors will see it on your site. Open the bubble in the bottom-right corner and chat as a customer: try a question, a product photo or a voice message.</p>
+      <div class="card">
+        <p>Conversations started here appear in your dashboard inbox like any other customer.</p>
+      </div>
+    </div>
+    <script>
+      var key = new URLSearchParams(location.search).get('key');
+      if (key) {
+        var s = document.createElement('script');
+        s.src = '/widget.js';
+        s.async = true;
+        s.setAttribute('data-key', key);
+        document.body.appendChild(s);
+      }
+    </script>
+  </body>
+</html>

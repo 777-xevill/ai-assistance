@@ -1,0 +1,26 @@
+{
+  "name": "ai-assistance",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Multi-tenant AI sales & customer-service assistant for businesses (Messenger, Instagram, WhatsApp, Telegram, website chat).",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c blue,magenta \"npm run dev -w server\" \"npm run dev -w web\"",
+    "build": "npm run build -w web",
+    "start": "npm run start -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web",
+    "db:generate": "npm run db:generate -w server",
+    "seed": "npm run seed -w server",
+    "test": "npm run test -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}
